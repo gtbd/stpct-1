@@ -115,10 +115,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -176,5 +173,10 @@ class AccountController extends Controller
     public function profile() {
         $account = accountSelector();
         return view('account.profile', compact('account'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        dd(request()->all());
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Account;
+use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -10,7 +12,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +22,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        dd('afjds');
+        $posts = Post::with('admin')->get();
+        return view('posts', compact('posts'));
     }
 
     /**
@@ -31,6 +34,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('admin.post.create');
     }
 
     /**
@@ -42,6 +46,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $id = Account::find(auth()->id());
+        $id->admin->posts()->create([
+            'title' => request('title'),
+            'description' => request('description'),
+        ]);
+        return back()->with('created', 'Post created!');
+
     }
 
     /**

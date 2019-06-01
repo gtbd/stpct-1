@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::view('/', 'posts')->name('home');
+Route::get('/', 'Admin\PostController@index')->name('home');
 Route::get('ab', function (){
 	$enrollment  = Carbon::parse(Enrollment::latest()->get()->first())->isoFormat('MMMM D, YYYY');
 	dd($enrollment);

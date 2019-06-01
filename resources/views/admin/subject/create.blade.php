@@ -91,9 +91,14 @@ Add Subjects
 					<div class="col-md-5">
 						<div class="form-group">
 							<label for="prerequisites" class="m-0">Prerequisites</label>
-							<p class="small text-muted">
-								Please separate subjects using "|". Eg. Math|English
-							</p>
+							<div class="mb-0 mt-n1">
+								<span class="small text-muted d-block">
+									Please separate subjects using "|".
+								</span>
+								<span class="small text-muted d-block">
+									Eg. Math|English
+								</span>
+							</div>
 							<div class="input-group">
 								<input id="prerequisites" type="prerequisites" class="form-control{{ $errors->has('prerequisites')? ' is-invalid' : '' }}" name="prerequisites" autofocus>
 								@if ($errors->has('prerequisites'))

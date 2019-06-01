@@ -18,9 +18,9 @@ class CreateClassesTable extends Migration
             $table->unsignedBigInteger('student_id')
                     ->foreign('student_id')->on('students');
             $table->unsignedBigInteger('section_id')
-                    ->foreign('section_id')->on('sections');
+                    ->foreign('section_id')->on('sections')->nullable();
             $table->unsignedBigInteger('subject_id')
-                    ->foreign('subject_id')->on('subjects');
+                    ->foreign('subject_id')->on('subjects')->nullable();
             $table->timestamps();
         });
     }

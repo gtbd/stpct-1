@@ -1,3 +1,4 @@
+@section('secondary')
 @if(!todayIsEnrollment())
 <form action="{{ route('declare.enrollment') }}" method="post">
 	@csrf
@@ -43,3 +44,4 @@
 	@endif
 </form>
 @endif
+@endsection

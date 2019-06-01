@@ -58,7 +58,7 @@ Profile
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="extension_name">Extension Name</label>
                             <div class="input-group">
@@ -71,7 +71,7 @@ Profile
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="contact_number">Contact Number</label>
                             <div class="input-group">
@@ -84,8 +84,34 @@ Profile
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="date_of_birth">Date of Birth</label>
+                            <div class="input-group">
+                                <input id="date_of_birth" type="date_of_birth" class="form-control{{ $errors->has('date_of_birth')? ' is-invalid' : '' }}" name="date_of_birth" value="{{ $account['user']->date_of_birth }}"  autofocus  {{ textDisabled() }}>
+                                @if ($errors->has('date_of_birth'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('date_of_birth') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <div class="input-group">
+                                <input id="address" type="address" class="form-control{{ $errors->has('address')? ' is-invalid' : '' }}" name="address" value="{{ $account['user']->address }}"  autofocus  {{ textDisabled() }}>
+                                @if ($errors->has('address'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('address') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password">Email Address</label>
@@ -99,6 +125,8 @@ Profile
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password">Password</label>
@@ -112,29 +140,14 @@ Profile
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="date_of_birth">Date of Birth</label>
+                            <label for="password_confirm">Confirm Password</label>
                             <div class="input-group">
-                                <input id="date_of_birth" type="date_of_birth" class="form-control{{ $errors->has('date_of_birth')? ' is-invalid' : '' }}" name="date_of_birth" value="{{ $account['user']->date_of_birth }}"  autofocus  {{ textDisabled() }}>
-                                @if ($errors->has('date_of_birth'))
+                                <input id="password_confirm" type="password_confirm" class="form-control{{ $errors->has('password_confirm')? ' is-invalid' : '' }}" name="password_confirm">
+                                @if ($errors->has('password_confirm'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('date_of_birth') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <div class="input-group">
-                                <input id="address" type="address" class="form-control{{ $errors->has('address')? ' is-invalid' : '' }}" name="address" value="{{ $account['user']->address }}"  autofocus  {{ textDisabled() }}>
-                                @if ($errors->has('address'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('address') }}</strong>
+                                    <strong>{{ $errors->first('password_confirm') }}</strong>
                                 </span>
                                 @endif
                             </div>
