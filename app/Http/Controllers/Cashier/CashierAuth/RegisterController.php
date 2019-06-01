@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\HeadTeacher\HeadTeacherAuth;
+namespace App\Http\Controllers\Cashier\CashierAuth;
 
 use App\Account;
 use App\Http\Controllers\Controller;

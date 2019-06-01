@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\HeadTeacher\HeadTeacherAuth;
+namespace App\Http\Controllers\Cashier\CashierAuth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;

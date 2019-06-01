@@ -29,7 +29,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-       
+
     }
 
     /**
@@ -70,7 +70,7 @@ class AccountController extends Controller
                 
                 default:
                 return redirect('/account/create')->with('message', 'Something went wrong with the request!')
-                                    ->withInput($request->all());
+                ->withInput($request->all());
                 break;
             }
         }
@@ -171,5 +171,10 @@ class AccountController extends Controller
         }
 
         $request->user()->sendEmailVerificationNotification();
+    }
+
+    public function profile() {
+        $account = accountSelector();
+        return view('account.profile', compact('account'));
     }
 }

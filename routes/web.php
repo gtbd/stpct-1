@@ -25,7 +25,7 @@ Route::get('ab', function (){
 
 
 Route::post('logout', 'AccountController@logout')->name('account.logout');
-Route::resource('profile', 'ProfileController');
+Route::get('profile', 'AccountController@profile')->name('account.profile');
 
 //----------------Registrar Auth
 

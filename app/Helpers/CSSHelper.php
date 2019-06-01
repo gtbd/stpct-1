@@ -23,5 +23,10 @@ function authCss(){
 			break;
 		}
 	}
+}
 
+function textDisabled(){
+	if (is_student()) {
+		return 'disabled';
+	}
 }

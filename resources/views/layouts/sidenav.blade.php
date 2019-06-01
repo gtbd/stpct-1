@@ -14,7 +14,7 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
+                    <a href="{{ route('account.profile') }}" class="nav-link text-white">
                         <i class="fas fa-fw fa-user nav-icon"></i>
                         <p>Profile</p>
                     </a>

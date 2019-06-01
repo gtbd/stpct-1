@@ -29,7 +29,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-       return view('account.profile');
+       
     }
 
     /**
@@ -39,7 +39,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        
     }
 
     /**
@@ -50,39 +50,39 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $account = Account::create([
-            'email' => $request['email'],
-            'password' => 'password',
-            'account_type' => $request['account_type'],
-        ]);
-        if(Auth::user()->account_type == 'Admin'){
+        // $account = Account::create([
+        //     'email' => $request['email'],
+        //     'password' => 'password',
+        //     'account_type' => $request['account_type'],
+        // ]);
+        // if(Auth::user()->account_type == 'Admin'){
 
-            switch ($request['account_type']) {
-                case 'Admin': create_admin(); break;
+        //     switch ($request['account_type']) {
+        //         case 'Admin': create_admin(); break;
 
-                case 'Faculty': create_faculty(); break;
+        //         case 'Faculty': create_faculty(); break;
                 
-                case 'Registrar': create_registrar(); break;
+        //         case 'Registrar': create_registrar(); break;
 
-                case 'Cashier': create_cashier(); break;
+        //         case 'Cashier': create_cashier(); break;
 
-                case 'Head Teacher': create_headTeacher(); break;
+        //         case 'Head Teacher': create_headTeacher(); break;
                 
-                default:
-                return redirect('/account/create')->with('message', 'Something went wrong with the request!')
-                                    ->withInput($request->all());
-                break;
-            }
-        }
-        if (Auth::user()->account_type == 'Registrar') {
-            switch ($request['account_type'] == 'Student') {
-                case 'Student': create_student(); break;               
-                default:
-                return redirect('/account/create')->with('message', 'Unknown Account Type!');
-                break;
-            }
+        //         default:
+        //         return redirect('/account/create')->with('message', 'Something went wrong with the request!')
+        //                             ->withInput($request->all());
+        //         break;
+        //     }
+        // }
+        // if (Auth::user()->account_type == 'Registrar') {
+        //     switch ($request['account_type'] == 'Student') {
+        //         case 'Student': create_student(); break;               
+        //         default:
+        //         return redirect('/account/create')->with('message', 'Unknown Account Type!');
+        //         break;
+        //     }
 
-        }
+        // }
         
     }
 
@@ -103,9 +103,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Account $account)
     {
         //
+        return $account;
     }
 
     /**

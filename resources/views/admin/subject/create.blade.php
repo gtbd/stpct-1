@@ -10,34 +10,112 @@ Add Subjects
 	{{ session('message') }}
 </div>
 @endif
-<form action="{{ route('subject.store') }}" method="POST">
-	@csrf
-	<div class="form-group">
-		<label for="subject_code">Subject Code</label>
-		<input type="text" name="subject_code" id="">
+<div class="container-fluid">
+	<div class="card">
+		<div class="card-body">
+			<form action="{{ route('subject.store') }}" method="POST">
+				@csrf
+				@method('PATCH')
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="subject_code">Subject Code</label>
+							<div class="input-group">
+
+								<input id="subject_code" type="subject_code" class="form-control{{ $errors->has('subject_code')? ' is-invalid' : '' }}" name="subject_code"  autofocus>
+								@if ($errors->has('subject_code'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('subject_code') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="description">Subject Name</label>
+							<div class="input-group">
+
+								<input id="description" type="description" class="form-control{{ $errors->has('description')? ' is-invalid' : '' }}" name="description" autofocus>
+								@if ($errors->has('description'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('description') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="year_level">Year Level</label>
+							<div class="input-group">
+								<input id="year_level" type="year_level" class="form-control{{ $errors->has('year_level')? ' is-invalid' : '' }}" name="year_level" autofocus>
+								@if ($errors->has('year_level'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('year_level') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="semester">Semester</label>
+							<div class="input-group">
+								<input id="semester" type="semester" class="form-control{{ $errors->has('semester')? ' is-invalid' : '' }}" name="semester" autofocus>
+								@if ($errors->has('semester'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('semester') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="total_units">Total Number of Units</label>
+							<div class="input-group">
+								<input id="total_units" type="total_units" class="form-control{{ $errors->has('total_units')? ' is-invalid' : '' }}" name="total_units" autofocus>
+								@if ($errors->has('total_units'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('total_units') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="prerequisites" class="m-0">Prerequisites</label>
+							<p class="small text-muted">
+								Please separate subjects using "|". Eg. Math|English
+							</p>
+							<div class="input-group">
+								<input id="prerequisites" type="prerequisites" class="form-control{{ $errors->has('prerequisites')? ' is-invalid' : '' }}" name="prerequisites" autofocus>
+								@if ($errors->has('prerequisites'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('prerequisites') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="form-group">
+							<button type="submit" class="btn btn-{{ authCss() }}">
+								Add Subject
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="description">Subject Name</label>
-		<input type="text" name="description" id="">
-	</div>
-	<div class="form-group">
-		<label for="year_level">Year Level</label>
-		<input type="text" name="year_level" id="">
-	</div>
-	<div class="form-group">
-		<label for="semester">Semester</label>
-		<input type="text" name="semester" id="">
-	</div>
-	<div class="form-group">
-		<label for="total_units">Total units of Subject</label>
-		<input type="number" name="total_units" id="">
-	</div>
-	<div class="form-group">
-		<label for="prerequisites">Prerequisites</label>
-		<input type="text" name="prerequisites" id="">
-	</div>
-	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Add</button>
-	</div>
-</form>
+</div>
 @endsection
