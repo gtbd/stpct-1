@@ -24,6 +24,7 @@ class CreateFacultiesTable extends Migration
             $table->date('date_of_birth');
             $table->string('address');
             $table->string('contact_number');
+            $table->string('department');
             $table->string('faculty_type')->nullable(); // contractual or regular
             $table->timestamps();
         });

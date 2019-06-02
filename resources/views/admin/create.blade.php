@@ -7,16 +7,15 @@ Add Staff
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-body">
-			<form method="POST" action="#">
+			<form method="POST" action="{{ route('account.store') }}">
 				@csrf
-				@method('PATCH')
 				<div class="row">
 					<div class="col-md-8">
 						<div class="form-group">
 							<label for="firstname">Firstname</label>
 							<div class="input-group">
 
-								<input id="firstname" type="firstname" class="form-control{{ $errors->has('firstname')? ' is-invalid' : '' }}" name="firstname" >
+								<input id="firstname" type="text" class="form-control{{ $errors->has('firstname')? ' is-invalid' : '' }}" name="firstname" >
 								@if ($errors->has('firstname'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('firstname') }}</strong>
@@ -31,7 +30,7 @@ Add Staff
 						<div class="form-group">
 							<label for="middlename">Middlename</label>
 							<div class="input-group">
-								<input id="middlename" type="middlename" class="form-control{{ $errors->has('middlename')? ' is-invalid' : '' }}" name="middlename" >
+								<input id="middlename" type="text" class="form-control{{ $errors->has('middlename')? ' is-invalid' : '' }}" name="middlename" >
 								@if ($errors->has('middlename'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('middlename') }}</strong>
@@ -46,7 +45,7 @@ Add Staff
 						<div class="form-group">
 							<label for="lastname">Lastname</label>
 							<div class="input-group">
-								<input id="lastname" type="lastname" class="form-control{{ $errors->has('lastname')? ' is-invalid' : '' }}" name="lastname" >
+								<input id="lastname" type="text" class="form-control{{ $errors->has('lastname')? ' is-invalid' : '' }}" name="lastname" >
 								@if ($errors->has('lastname'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('lastname') }}</strong>
@@ -61,7 +60,7 @@ Add Staff
 						<div class="form-group">
 							<label for="extension_name">Extension Name</label>
 							<div class="input-group">
-								<input id="extension_name" type="extension_name" class="form-control{{ $errors->has('extension_name')? ' is-invalid' : '' }}" name="extension_name" >
+								<input id="extension_name" type="text" class="form-control{{ $errors->has('extension_name')? ' is-invalid' : '' }}" name="extension_name" >
 								@if ($errors->has('extension_name'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('extension_name') }}</strong>
@@ -74,7 +73,7 @@ Add Staff
 						<div class="form-group">
 							<label for="contact_number">Contact Number</label>
 							<div class="input-group">
-								<input id="contact_number" type="contact_number" class="form-control{{ $errors->has('contact_number')? ' is-invalid' : '' }}" name="contact_number" >
+								<input id="contact_number" type="text" class="form-control{{ $errors->has('contact_number')? ' is-invalid' : '' }}" name="contact_number" >
 								@if ($errors->has('contact_number'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('contact_number') }}</strong>
@@ -87,7 +86,7 @@ Add Staff
 						<div class="form-group">
 							<label for="date_of_birth">Date of Birth</label>
 							<div class="input-group">
-								<input id="date_of_birth" type="date_of_birth" class="form-control{{ $errors->has('date_of_birth')? ' is-invalid' : '' }}" name="date_of_birth" >
+								<input id="date_of_birth" type="date" class="form-control{{ $errors->has('date_of_birth')? ' is-invalid' : '' }}" name="date_of_birth" >
 								@if ($errors->has('date_of_birth'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('date_of_birth') }}</strong>
@@ -102,7 +101,7 @@ Add Staff
 						<div class="form-group">
 							<label for="address">Address</label>
 							<div class="input-group">
-								<input id="address" type="address" class="form-control{{ $errors->has('address')? ' is-invalid' : '' }}" name="address" >
+								<input id="address" type="text" class="form-control{{ $errors->has('address')? ' is-invalid' : '' }}" name="address" >
 								@if ($errors->has('address'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('address') }}</strong>
@@ -113,7 +112,7 @@ Add Staff
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="password">Email Address</label>
+							<label for="email">Email Address</label>
 							<div class="input-group">
 								<input id="email" type="email" class="form-control{{ $errors->has('email')? ' is-invalid' : '' }}" name="email" >
 								@if ($errors->has('email'))
@@ -128,7 +127,20 @@ Add Staff
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="password">Account Type</label>
+							<label for="department">Department</label>
+							<div class="input-group">
+								<input id="department" type="text" class="form-control{{ $errors->has('department')? ' is-invalid' : '' }}" name="department" >
+								@if ($errors->has('department'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('department') }}</strong>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="account_type">Account Type</label>
 							<div class="input-group">
 								<select name="account_type" id="account_type" class="form-control">
 									<option value="Admin">Admin</option>

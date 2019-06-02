@@ -19,7 +19,8 @@ function create_admin(){
 	$generated = generatedPassword($admin->id);
 	$hashed = Hash::make($generated);
 	$admin->account()->update(['password' => $hashed]);
-	$account->sendEmailVerificationNotification();
+	$account->notify(new AccountVerification($admin, $generated));
+	return redirect('/account/create')->with('message', 'Admin created successfully!');
 
 }
 function create_faculty(){
@@ -37,7 +38,7 @@ function create_faculty(){
 	$generated = generatedPassword($faculty->id);
 	$hashed = Hash::make($generated);
 	$faculty->account()->update(['password' => $hashed]);
-	$account->sendEmailVerificationNotification();
+	$account->notify(new AccountVerification($faculty, $generated));
 	return redirect('/account/create')->with('message', 'Faculty Member created successfully!');
 }
 function create_registrar(){
@@ -46,7 +47,6 @@ function create_registrar(){
 		'middlename' => $request['middlename'],
 		'lastname' => $request['lastname'],
 		'extension_name' => $request['extension_name'],
-		'department' => $request['department'],
 		'date_of_birth' => $request['date_of_birth'],
 		'address' => $request['address'],
 		'contact_number' => $request['contact_number'],
@@ -54,7 +54,7 @@ function create_registrar(){
 	$generated = generatedPassword($registrar->id);
 	$hashed = Hash::make($generated);
 	$registrar->account()->update(['password' => $hashed]);
-	$account->sendEmailVerificationNotification();
+	$account->notify(new AccountVerification($registrar, $generated));
 	return redirect('/account/create')->with('message', 'Registrar created successfully!');
 }
 function create_cashier(){
@@ -67,7 +67,10 @@ function create_cashier(){
 		'address' => $request['address'],
 		'contact_number' => $request['contact_number'],
 	]);
+	$generated = generatedPassword($cashier->id);
+	$hashed = Hash::make($generated);
 	$cashier->account()->update(['password' => $hashed]);
+	$account->notify(new AccountVerification($cashier, $generated));
 	return redirect('/account/create')->with('message', 'Cashier created successfully!');
 }
 function create_headTeacher(){
@@ -80,7 +83,10 @@ function create_headTeacher(){
 		'address' => $request['address'],
 		'contact_number' => $request['contact_number'],
 	]);
+	$generated = generatedPassword($head_teacher->id);
+	$hashed = Hash::make($generated);
 	$head_teacher->account()->update(['password' => $hashed]);
+	$account->notify(new AccountVerification($head_teacher, $generated));
 	return redirect('/account/create')->with('message', 'Head Teacher created successfully!');
 }
 function create_student(){
@@ -97,6 +103,9 @@ function create_student(){
 		'status' => $request['status'],
 		'isCollege' => true,
 	]);
+	$generated = generatedPassword($student->id);
+	$hashed = Hash::make($generated);
 	$student->account()->update(['password' => $hashed]);
+	$account->notify(new AccountVerification($student, $generated));
 	return redirect('/account/create')->with('message', 'Student created successfully!');
 }

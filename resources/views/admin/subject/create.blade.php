@@ -92,7 +92,7 @@ Add Subjects
 						<div class="form-group">
 							<label for="prerequisites" class="m-0">Prerequisites</label>
 							<div class="mb-0 mt-n1">
-								<span class="small text-muted d-block">
+								<span class="small t1ext-muted d-block">
 									Please separate subjects using "|".
 								</span>
 								<span class="small text-muted d-block">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student\StudentAuth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidationRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,14 +43,15 @@ class LoginController extends Controller
         return view('student.login');
     }
 
-    public function login(Request $request) {
-        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password'], 'account_type' => "Student"])) {
-    // The user is active, not suspended, and exists.
-            return redirect()->intended('/dashboard')->with('message', 'You\'ve successfully logged in as '. Auth::user()->student->firstname.' '.Auth::user()->student->lastname.'.');
-        }
-        else{
-            return back()->withErrors(['error', 'Incorrect credentials']);
+    public function login(ValidationRequest $request) {
+        
+        if (Auth::attempt(['email'=>request('email'), 'password'=>request('password'), 'account_type'=>"Student"], request('remember'))) {
+                // The user is active, not suspended, and exists.
+                return redirect()->intended('/dashboard')->with('message', 'You\'ve successfully logged in as '. Auth::user()->student->firstname.' '.Auth::user()->student->lastname.'.');
+        }else{
+            return back()
+            ->withErrors(['credentials'=> trans('auth.failed')])
+            ->withInput($request->except('password'));
         }
     }
-
 }

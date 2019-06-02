@@ -55,19 +55,22 @@ class AccountController extends Controller
             'password' => 'password',
             'account_type' => $request['account_type'],
         ]);
+
         if(Auth::user()->account_type == 'Admin'){
 
             switch ($request['account_type']) {
+
                 case 'Admin': create_admin(); break;
 
-                case 'Faculty': create_faculty(); break;
-                
                 case 'Registrar': create_registrar(); break;
 
                 case 'Cashier': create_cashier(); break;
 
                 case 'Head Teacher': create_headTeacher(); break;
                 
+                case 'Faculty': create_faculty(); break;
+
+
                 default:
                 return redirect('/account/create')->with('message', 'Something went wrong with the request!')
                 ->withInput($request->all());
@@ -173,10 +176,5 @@ class AccountController extends Controller
     public function profile() {
         $account = accountSelector();
         return view('account.profile', compact('account'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        dd(request()->all());
     }
 }

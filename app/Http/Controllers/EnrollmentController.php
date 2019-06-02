@@ -25,7 +25,7 @@ class EnrollmentController extends Controller
     {
 
     	
-    	$subjects = Subject::all();
+    	$subjects = Subject::with('section')->get();
     	$enrollment  = Enrollment::latest()->get()->first();
 
     	if (todayIsEnrollment() && $enrollment->status){
