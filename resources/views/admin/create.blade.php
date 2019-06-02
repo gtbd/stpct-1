@@ -128,25 +128,18 @@ Add Staff
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="password">Password</label>
+							<label for="password">Account Type</label>
 							<div class="input-group">
-								<input id="password" type="password" class="form-control{{ $errors->has('password')? ' is-invalid' : '' }}" name="password">
-								@if ($errors->has('password'))
+								<select name="account_type" id="account_type" class="form-control">
+									<option value="Admin">Admin</option>
+									<option value="Head Teacher">Head Teacher</option>
+									<option value="Faculty">Faculty</option>
+									<option value="Registrar">Registrar</option>
+									<option value="Cashier">Cashier</option>
+								</select>
+								@if ($errors->has('account_type'))
 								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('password') }}</strong>
-								</span>
-								@endif
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="password_confirm">Confirm Password</label>
-							<div class="input-group">
-								<input id="password_confirm" type="password_confirm" class="form-control{{ $errors->has('password_confirm')? ' is-invalid' : '' }}" name="password_confirm">
-								@if ($errors->has('password_confirm'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('password_confirm') }}</strong>
+									<strong>{{ $errors->first('account_type') }}</strong>
 								</span>
 								@endif
 							</div>
@@ -157,7 +150,7 @@ Add Staff
 					<div class="col-md-8">
 						<div class="form-group">
 							<button type="submit" class="btn btn-{{ authCss() }}">
-								Save Changes
+								Add Account
 							</button>
 						</div>
 					</div>

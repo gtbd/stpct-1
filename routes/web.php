@@ -1,6 +1,8 @@
 <?php
 
+use App\Enrollment;
 use App\Mail\EmailVerified;
+use App\Subject;
 use Carbon\Carbon;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Http\Request;
@@ -23,6 +25,11 @@ Route::get('ab', function (){
 	dd($enrollment);
 });
 
+Route::get('/auth', function (){
+	Subject::all();
+	$e = Enrollment::latest()->get();
+	return view('test', compact('e'));
+});
 
 Route::post('logout', 'AccountController@logout')->name('account.logout');
 Route::get('profile', 'AccountController@profile')->name('account.profile');
