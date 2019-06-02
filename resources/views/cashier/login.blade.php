@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Faculty Login')
+@section('title', 'Cashier Login')
 @section('content')
 <div class="container-fluid align-items-center justify-content-center d-flex" style="height: 100vh">
     <div class="row">
@@ -11,10 +11,10 @@
             @endif
             <div class="card" style="width: 30vw; height: 70vh">
                 <div class="card-header">
-                    <i class="fas fa-chalkboard"></i> Faculty Login
+                    <i class="fas fa-cash-register"></i> Cashier Login
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('faculty.login') }}">
+                    <form method="POST" action="{{ route('cashier.login') }}">
                         @csrf
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-mediumseagreen">
+                            <button type="submit" class="btn btn-jadegreen">
                                 Login
                             </button>
 

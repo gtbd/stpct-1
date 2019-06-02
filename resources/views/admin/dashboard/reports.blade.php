@@ -57,7 +57,7 @@
       </div>
       <div class="col-lg-3 col-6">
         <!-- small box -->
-        <div class="small-box bg-primary bg-parisgreen">
+        <div class="small-box bg-primary bg-jadegreen">
           <div class="inner">
             <h3>{{ count($cashiers) }}</h3>
             <p>{{ count($cashiers) <= 1 ? 'Cashier': str_plural('Cashier') }}</p>

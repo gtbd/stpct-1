@@ -48,7 +48,7 @@ class LoginController extends Controller
 
 
     public function showLoginForm() {
-        return view('admin.login');
+        return view('cashier.login');
     }
 
 
@@ -63,9 +63,9 @@ class LoginController extends Controller
 
     public function login(ValidationRequest $request) {
         
-        if (Auth::attempt(['email'=>request('email'), 'password'=>request('password'), 'account_type'=>"Admin"], request('remember'))) {
+        if (Auth::attempt(['email'=>request('email'), 'password'=>request('password'), 'account_type'=>"Cashier"], request('remember'))) {
                 // The user is active, not suspended, and exists.
-                return redirect()->intended('/dashboard')->with('message', 'You\'ve successfully logged in as '. Auth::user()->admin->firstname.' '.Auth::user()->admin->lastname.'.');
+                return redirect()->intended('/dashboard')->with('message', 'You\'ve successfully logged in as '. Auth::user()->cashier->firstname.' '.Auth::user()->cashier->lastname.'.');
         }else{
             return back()
             ->withErrors(['credentials'=> trans('auth.failed')])

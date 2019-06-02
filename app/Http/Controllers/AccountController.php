@@ -60,16 +60,30 @@ class AccountController extends Controller
 
             switch ($request['account_type']) {
 
-                case 'Admin': create_admin(); break;
+                case 'Admin':
+                create_admin($account);
+                return redirect('/account/create')->with('message', 'Admin created successfully!');
+                break;
 
-                case 'Registrar': create_registrar(); break;
+                case 'Faculty':
+                create_faculty($account);
+                return redirect('/account/create')->with('message', 'Faculty Member created successfully!');
+                break;
 
-                case 'Cashier': create_cashier(); break;
+                case 'Registrar':
+                create_registrar($account);
+                return redirect('/account/create')->with('message', 'Registrar created successfully!');
+                break;
 
-                case 'Head Teacher': create_headTeacher(); break;
-                
-                case 'Faculty': create_faculty(); break;
+                case 'Cashier':
+                create_cashier($account);
+                return redirect('/account/create')->with('message', 'Cashier created successfully!');
+                break;
 
+                case 'Head Teacher':
+                create_headTeacher($account);
+                return redirect('/account/create')->with('message', 'Head Teacher created successfully!');
+                break;
 
                 default:
                 return redirect('/account/create')->with('message', 'Something went wrong with the request!')
@@ -79,12 +93,14 @@ class AccountController extends Controller
         }
         if (Auth::user()->account_type == 'Registrar') {
             switch ($request['account_type'] == 'Student') {
-                case 'Student': create_student(); break;               
+                case 'Student':
+                create_student();
+                return redirect('/account/create')->with('message', 'Student created successfully!');
+                break;
                 default:
                 return redirect('/account/create')->with('message', 'Unknown Account Type!');
                 break;
             }
-
         }
         
     }

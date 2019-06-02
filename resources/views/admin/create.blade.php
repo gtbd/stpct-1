@@ -3,11 +3,20 @@
 <i class="fas fa-fw fa-users"></i>
 Add Staff
 @endsection
+@section('secondary')
+@if(session('message'))
+<div class="card card text-white bg-success  ml-auto" style="max-width: 18rem;">
+    <div class="card-header">
+        {{ session('message') }}
+    </div>
+</div>
+@endif
+@endsection
 @section('content')
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-body">
-			<form method="POST" action="{{ route('account.store') }}">
+			<form method="POST" action="/account/create">
 				@csrf
 				<div class="row">
 					<div class="col-md-8">

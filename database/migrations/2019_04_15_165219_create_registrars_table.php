@@ -21,7 +21,6 @@ class CreateRegistrarsTable extends Migration
             $table->string('middlename')->nullable();
             $table->string('lastname');
             $table->string('extension_name')->nullable();
-            $table->string('department');
             $table->date('date_of_birth');
             $table->string('address');
             $table->string('contact_number');

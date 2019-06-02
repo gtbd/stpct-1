@@ -1,11 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Student Login')
-@section('page_header')
-<i class="fas fa-fw fa-chart-bar"></i>
-Dashboard
-@endsection
 @section('content')
-<div class="container-fluid align-items-center justify-content-end d-flex" style="height: 100vh">
+<div class="container-fluid align-items-center justify-content-center d-flex" style="height: 100vh">
     <div class="row">
         <div class="col-md-4">
             @if (session('verification'))
@@ -15,7 +11,7 @@ Dashboard
             @endif
             <div class="card" style="width: 30vw; height: 70vh">
                 <div class="card-header">
-                    <i class="fas fa-user-lock"></i> Student Login
+                    <i class="fas fa-users"></i> Student Login
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('student.login') }}">

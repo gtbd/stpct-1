@@ -1,11 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Admin Login')
-@section('page_header')
-<i class="fas fa-fw fa-chart-bar"></i>
-Dashboard
-@endsection
 @section('content')
-<div class="container-fluid align-items-center justify-content-end d-flex" style="height: 100vh">
+<div class="container-fluid align-items-center justify-content-center d-flex" style="height: 100vh">
     <div class="row">
         <div class="col-md-4">
             @if (session('verification'))

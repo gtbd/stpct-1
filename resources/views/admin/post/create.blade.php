@@ -12,6 +12,7 @@ Create Post
 </div>
 @endif
 @endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="card">

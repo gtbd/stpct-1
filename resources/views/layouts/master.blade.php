@@ -76,7 +76,6 @@
     <div class="float-right d-none d-sm-inline">
       St. Peter College of Technology
     </div>
-    <strong>Copyright &copy; 2014-2018 <a class="text-muted" href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 </div>
 

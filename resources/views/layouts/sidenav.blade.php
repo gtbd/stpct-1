@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('headTeacher.login') }}" class="nav-link text-white">
+                    <a href="{{ route('head_teacher.login') }}" class="nav-link text-white">
                         <i class="fas fa-fw fa-chalkboard-teacher nav-icon"></i>
                         <p>Head Teacher</p>
                     </a>
@@ -80,6 +80,12 @@
                     <a href="{{ route('student.login') }}" class="nav-link text-white">
                         <i class="fas fa-fw fa-users nav-icon"></i>
                         <p>Student</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('student.login') }}" class="nav-link text-white">
+                        <i class="fas fa-fw fa-question nav-icon"></i>
+                        <p>FAQs</p>
                     </a>
                 </li>
                 @endif

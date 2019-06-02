@@ -26,9 +26,7 @@ Route::get('ab', function (){
 });
 
 Route::get('/auth', function (){
-	Subject::all();
-	$e = Enrollment::latest()->get();
-	return view('test', compact('e'));
+
 });
 
 Route::post('logout', 'AccountController@logout')->name('account.logout');
@@ -131,7 +129,7 @@ Route::namespace('HeadTeacher')->group(function (){
 		Route::namespace('HeadTeacherAuth')->group(function (){
 			Route::post('login', 'LoginController@login');
 			Route::post('register', 'RegisterController@register');
-			Route::name('headTeacher.')->group(function (){
+			Route::name('head_teacher.')->group(function (){
 				Route::get('login', 'LoginController@showLoginForm')->name('login');
 				
 				Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -264,7 +262,8 @@ Route::post('/student/register', 'StudentAuth\RegisterController@register');*/
 
 
 
-Route::resource('account', 'AccountController');
+Route::get('account/create', 'AccountController@create')->name('account.create');
+Route::post('account/create', 'AccountController@store')->name('account.store');
 Route::get('/enrollment', 'EnrollmentController@showEnrollment')->name('enrollment');
 
 
@@ -279,9 +278,8 @@ Route::get('/print', 'AccountController@viewAssessment')->middleware('auth')->na
 })->middleware('auth');*/
 
 
-Route::get("/mail?email=zeuszen11@gmail.com", function (Request $request){
-	
-});
 
-Route::get('test', 'ClassController@index');
+Route::get('/test', function (){
+	phpinfo();
+});
 

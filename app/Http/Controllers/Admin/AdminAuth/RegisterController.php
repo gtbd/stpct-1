@@ -67,13 +67,13 @@ class RegisterController extends Controller
      */
     protected function register(Request $request) {
 
-       $account = Account::create([
+     $account = Account::create([
         'email'=>$request['email'],
         'password' => 'password',
         'account_type'=>$request['account_type']
     ]);
 
-       $admin = $account->admin()->create([
+     $admin = $account->admin()->create([
         'firstname' => $request['firstname'],
         'middlename' => $request['middlename'],
         'lastname' => $request['lastname'],
@@ -84,15 +84,15 @@ class RegisterController extends Controller
     ]);
 
 
-       $generated = generatedPassword($admin->id);
-       $hashed = Hash::make($generated);
-       $admin->account()->update(['password' => $hashed]);
-       $account->notify(new AccountVerification($admin, $generated));
-       return redirect('/admin/login')->with('verification', 'Kindly check your email to verify.');
+     $generated = generatedPassword($admin->id);
+     $hashed = Hash::make($generated);
+     $admin->account()->update(['password' => $hashed]);
+     $account->notify(new AccountVerification($admin, $generated));
+     return redirect('/admin/login')->with('verification', 'Kindly check your email to verify.');
 
-   }
+ }
 
-   public function showRegistrationForm() {
+ public function showRegistrationForm() {
     return view('admin.register');
-   }
+}
 }

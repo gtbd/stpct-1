@@ -16,12 +16,15 @@ function authCss(){
 			return 'forestgreen';
 			break;
 			case 'Cashier':
-			return 'parisgreen';
+			return 'jadegreen';
 			break;
 			case 'Student':
 			return 'limegreen';
 			break;
 		}
+	}
+	else{
+		return 'balticsea';
 	}
 }
 

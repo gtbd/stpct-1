@@ -55,7 +55,7 @@ class Account extends Authenticatable implements MustVerifyEmail
     public function admin() {
         return $this->hasOne(Admin::class);
     }
-    public function headTeacher() {
+    public function head_teacher() {
         return $this->hasOne(HeadTeacher::class);
     }
     public function avatar() {
